@@ -1,0 +1,148 @@
+\documentclass[a4paper,fleqn]{article}
+\setlength{\headheight}{23pt}
+\usepackage[a4paper,left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{grffile}
+\usepackage{eurosym}
+\usepackage{graphicx} % Allows including images 
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage{siunitx}
+\usepackage{ifthen}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage[justification=raggedright,labelfont=bf,font=scriptsize]{caption}
+\usepackage{todonotes}
+\presetkeys{todonotes}{inline}{}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{lastpage}
+\usepackage{xspace}	
+\usepackage[skip=10pt plus1pt, indent=0pt]{parskip}
+\usepackage{makecell}
+\usepackage{csvsimple}
+\usepackage{siunitx}
+\usepackage{svg}
+\usepackage{csquotes}
+\usepackage{footmisc}
+\usepackage{multicol}
+\usepackage{tikz}
+\usepackage{circuitikz}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%% VARIABLEN FÜR VORLAGE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand\titlelab{Titel}
+\newcommand\titlelecture{Vorlesung}
+\newcommand\reportauthor{Autor}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%  Mathematik
+\usepackage{amsmath}								%  Mathematikpaket
+\allowdisplaybreaks									%  Formeln können auf mehrere Seiten verteilt werden
+\usepackage{amssymb}								%  spezielle Mathmematiksymbole
+\usepackage{siunitx}								%  korrektes Darstellen von Einheiten
+\sisetup{locale = DE}
+
+\usepackage{geometry}								%  Definition der Seitenraender
+\usepackage[final]{pdfpages}							% zum einbinden von externen pdf-Seiten
+\usepackage{graphicx}								%  zum Einbinden von Grafiken, spziell für dvi->ps Konvertierung
+\setlength{\unitlength}{1mm}
+\usepackage[hidelinks]{hyperref}	
+\usepackage{placeins}								% FloatBarrier
+\usepackage{upgreek}
+\usepackage{tabularx}								% schöne tabellen
+\usepackage{longtable}  								% lange tabellen
+%\usepackage[osf,sc]{mathpazo}						% Schriftart	
+\usepackage{booktabs}								% linien in der tabelle
+\usepackage{nicefrac}								% brüche in zeilen
+\usepackage{bold-extra}
+
+\usepackage{enumitem}
+\setitemize{itemsep=-5pt}
+\setenumerate{itemsep=-5pt}
+\setlength{\mathindent}{10pt}
+
+\usepackage[					   % Literaturverzeichnis mit "biber [Projektname ohne Endung]" aktualisieren
+    backend=biber,
+    style=ieee,
+]{biblatex}                        % Bibliography management
+\addbibresource{references.bib}    % Bibliography file
+
+\lhead{\titlelab} 
+\chead{} 
+\rhead{} 
+
+\lfoot{} \cfoot{} \rfoot{\scriptsize Seite \thepage\ von \pageref{LastPage}} 
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand\familydefault\sfdefault	%Serifenlose Schriftart
+\addto\captionsngerman{\renewcommand{\figurename}{Abbildung}}
+\addto\captionsngerman{\renewcommand{\tablename}{Tabelle}}
+%\captionsetup{justification = raggedright}
+
+\newcommand\tab[1][0.5cm]{\hspace*{#1}}
+
+\setlength{\belowrulesep}{1mm}
+
+\begin{document}
+\begin{center}
+	\Large \textbf{\titlelab}
+\end{center}
+\tableofcontents
+\hrulefill
+
+\section{Abschnitt}
+\begin{itemize}
+    \item eine Aufzählung
+    \item[1785] eine Aufzählung mit andrem Zeichen 
+\end{itemize}
+
+\subsection{Unterabschnitt}
+\input{Kräfte.tex}
+Ein Gleichugnsblock\footnote{Dabei können auch Fußnoten mit $V = \frac{4}{3}\pi \cdot r^3$ eingefügt werden.}
+\begin{align}
+	F_g &= m_{"Ol}\cdot g = \varrho_{"Ol}\cdot \frac{4}{3}\pi \cdot r^3 \cdot g \label{eq:F_g}\\
+	F_A &= m_L \cdot g = \varrho_L\cdot \frac{4}{3}\pi \cdot r^3 \cdot g \label{eq:F_A}\\
+	F_E &= q\cdot E = q \cdot \frac{U}{d} \label{eq:F_E}
+\end{align}
+Mehrere Spalten:
+\begin{multicols}{2}
+	\begin{tabbing}
+		$\eta$ \tab \= – dyn. Viskosität der Luft \\
+		$m_L$ \> – Masser der verdrängten Luft \\
+		$\varrho_L$ \> – Dichte der Luft \\
+		$m_{"Ol}$ \> – Masse des Öltröpfchens \\
+		$\varrho_{"Ol}$ \> – Dichte des Öls \\
+		$r$ \> – Radius des Öltröpfchens \\
+		$v_f$ \> – Fallgeschwindigkeit \\
+		$v_s$ \> – Steiggeschwindigkeit \\
+		$q$ \> – Ladung des Öltröpfchens \\
+		$E$ \> – elektrische Feldstärke im Kondensator \\
+		$U$ \> – Kondensatorspannung \\
+		$d$ \> – Abstand der Kondensatorplatten
+	\end{tabbing}
+\end{multicols}
+
+\subsection*{unnumerierter Unterabschnitt}
+\begin{tabular}{ll}
+	Fallen: & $F_g - F_A - F_{R,f} = 0$ \\
+	Steigen: & $F_g - F_A - F_E + F_{R,s} = 0$
+\end{tabular} 
+\newline
+
+\subsubsection{Unterunterabschnitt}
+Für Stichproben\footnotemark \space wird die Standardabweichung mit bekannter Grundgesamtheit $\sigma$ durch die Standardabweichung einer Stichprobe $s$ ersetzt und \textsc{Bessel}\footnotemark-korrigiert ($n \rightarrow n-1$)\cite{oA:2022:bk}:
+\footnotetext{Eine Stichprobe liegt vor, da nur eine Auswahl der vorhandenen, nicht zählbaren Öltröpfchen vorliegt.}
+\footnotetext{Die \textsc{Bessel}-Korrektur vergrößert die Varianz und ist damit realitätsnaher.}
+\begin{align}
+	s = \sqrt{\frac{1}{n-1}\cdot \sum _{i=1}^{n} \left(x_i-\mu\right)^2}
+\end{align}
+
+\newpage
+\appendix
+\section{Literaturverzeichnis}
+\printbibliography
+\end{document}
