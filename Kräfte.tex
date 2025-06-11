@@ -1,0 +1,31 @@
+\begin{figure}[!ht]
+\centering
+\resizebox{0.5\textwidth}{!}{%
+\begin{circuitikz}
+\tikzstyle{every node}=[font=\large]
+\draw [ fill={rgb,255:red,0; green,0; blue,0} ] (9.5,13) circle (1.25cm);
+\shade[ball color = black!80,opacity = 1] (9.5,13) circle (1.25cm);
+\draw [line width=2pt, short] (11,13) -- (16,13);
+\draw [line width=2pt, short] (3.75,13) -- (8,13);
+\draw [line width=2pt, ->, >=Stealth] (4.25,13) -- (4.25,10.5);
+\draw [line width=2pt, ->, >=Stealth] (5.25,13) -- (5.25,14);
+\draw [line width=2pt, ->, >=Stealth] (6.5,13) -- (6.5,13.75);
+\draw [line width=2pt, ->, >=Stealth] (12,13) -- (12,10.5);
+\draw [line width=2pt, ->, >=Stealth] (13,13) -- (13,14);
+\draw [line width=2pt, ->, >=Stealth] (14,13) -- (14,12);
+\draw [line width=2pt, ->, >=Stealth] (15.25,13) -- (15.25,16.25);
+\draw [line width=2pt, ->, >=Stealth] (3,16.75) -- (3,9.75);
+\node [font=\large] at (3,9.5) {$+x$};
+\node [font=\large] at (5.25,14.5) {$\vec F_A$};
+\node [font=\large] at (6.5,14.25) {$\vec F_{R,f}$};
+\node [font=\large] at (12,10) {$\vec F_g$};
+\node [font=\large] at (13,14.5) {$\vec F_A$};
+\node [font=\large] at (14,11.5) {$\vec F_{R,s}$};
+\node [font=\large] at (15.25,16.5) {$\vec F_E$};
+\node [font=\large] at (4.25,10) {$\vec F_g$};
+\end{circuitikz}
+}%
+
+\label{fig:my_label}
+\captionof{figure}{An einem Öltröpfchen angreifende Kräfte während des Fallens (links) und Steigens (rechts); $+x$ definiert die positive Richtung.\cite{oaverq4milver}}
+\end{figure}
